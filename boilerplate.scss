@@ -1,0 +1,785 @@
+/*
+  Theme Boilerplate v1.0
+
+  Union Street Media
+  Original Developer: C. Williams
+  Last Edited by: ~Your name here~
+*/
+
+/* --------------------------------------------------------------------------
+    Initialize/Set Variables
+-------------------------------------------------------------------------- */
+
+// Brand Fonts
+$font-primary: 'Raleway', Verdana, Arial, sans-serif;
+$font-secondary:  'Raleway', Verdana, Arial, sans-serif;
+
+// Your Header Link Colors & Hovers
+$header-primary: #FFF;
+$header-secondary: #b6b5b5;
+
+// Your Content Colors
+$brand-color: #43474a;
+$brand-accent: #FFF;
+
+// Your Content Link Colors & Hovers
+
+
+// Your Footer Link Color & Hover
+$footer-primary: #FFF;
+$footer-secondary: #FFF;
+
+$text-color: #000;
+
+//Page Dimensions
+$container-width: 980px;
+$sidebar-width: 300px;
+$header-height: 523px;
+
+//Smooth animations
+@mixin smoothAnimation($speed){
+  -webkit-transition: all $speed ease;
+     -moz-transition: all $speed ease;
+      -ms-transition: all $speed ease;
+       -o-transition: all $speed ease;
+          transition: all $speed ease;
+}
+
+//Fix aliasing on some font styles to better match photoshop 
+*{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------------------------------------------------
+    Font & Text Formatting
+-------------------------------------------------------------------------- */
+body h1,body h2,body h3,body h4,body h5,body h6 {
+  font-family: $font-primary;
+}
+body h1 {
+    color: $brand-color;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 35px;
+}
+body h2 { 
+    font-size: 24px;
+}
+body h3 { 
+    font-size: 18px; 
+    text-transform: none;
+}
+body, p, span, div, section, article, li, form input, textarea, select {
+  font-family: $font-primary;
+}
+a{
+  font-size: 15px;
+  font-family: $font-primary;
+  font-weight: 400;
+}
+
+/* --------------------------------------------------------------------------
+    Admin Wrappers
+-------------------------------------------------------------------------- */
+#header{
+    height:$header-height;
+    overflow:inherit;
+    width:100%;
+}
+#widgetArea_headertop {
+	height: $header-height;
+}
+#wrapper{
+    margin:0 auto;
+    min-width:100%;
+}
+#content{
+    width:650px;
+    margin-right:30px;
+}
+#contentwrapper{
+    float:none;
+    width: $container-width;
+    margin:0 auto;
+}
+#contentarea {
+    margin-top: 30px;
+    width: $container-width;
+    background-color: #FFF;
+}
+#right{
+    width:$sidebar-width;
+    .interiorblock {
+        margin: 0;
+    }
+}
+.interiorblock.content-area-container {
+	margin-left: 0;
+}
+
+/* --------------------------------------------------------------------------
+    Custom Theme Wrappers
+-------------------------------------------------------------------------- */
+
+#topArea {
+	width: $container-width;
+	margin: 0 auto;
+}
+#bottomContainer {
+    width: $container-width;
+    margin: 0 auto;
+}
+#footer footer {
+    padding-top: 20px;
+    height: 80px;
+    margin: 0 auto;
+    width: $container-width;
+}
+#footer{
+    background-repeat: repeat;
+    padding: 0;
+    width: 100%;
+}
+.homepage #bottomCtaArea {
+    min-height:400px;
+	background: #d2d7da;
+    display:block;
+}
+#bottomCtaArea{
+    display:none;
+}
+
+/* --------------------------------------------------------------------------
+    Header Theme Styling
+-------------------------------------------------------------------------- */
+
+#header a{
+    text-shadow:none;
+    font-size:17px;
+    font-weight:400;
+    font-family:"Open Sans",sans-serif;
+}
+#header a:hover{
+    color:$header-secondary;
+}
+#topArea>div.topLeft>a:nth-child(1), #topArea>div.topLeft>a:nth-child(2), #topArea>div.topLeft>a:nth-child(3) {
+    display: inline-block;
+    width: 30px;
+    line-height: 46px;
+    font-size: 23px;
+    color:#e7c22c;
+    height: 33px;
+}
+.topRight {
+    padding-top:13px;
+    text-align: right;
+    width: 400px;
+    margin: 0 0 0 auto;
+    color: #FFF;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 17px;
+}
+.topRight span {
+    line-height: 18px;
+    display: block;
+}
+#codewidget-28460 {
+	margin-bottom: 5px;
+}
+.topLeft {
+    width: 350px;
+    float: left;
+    position: relative;
+    top: 12px;
+    color: #FFF;
+}
+.topRight .fa-circle {
+    font-size: 5px;
+    position: relative;
+    top: -4px;
+}
+
+/* --------------------------------------------------------------------------
+    Hidden Elements
+-------------------------------------------------------------------------- */
+
+#header .mobile, #agents-search-controls, #agent-agent-featuredlistings, .widget-nls .button span, .ezbreadcrumbs, .listinginfo a, p#footer-officeinfo, #usmtag, #property-search label.overlabel-apply{
+    display: none;
+}
+
+/* --------------------------------------------------------------------------
+    Natural Language Search
+-------------------------------------------------------------------------- */
+
+.naturallanguagesearch{
+    top: -165px;
+    z-index: 100;
+    width: 845px;
+    margin: 0 auto!important;
+    position: relative;
+    background-color: rgba(0,0,0,.5);
+    border: none;
+	height:130px;
+}
+.widget-nls .box {
+    background: none;
+    border: none;
+    width: 810px;
+    margin: 0 0 0 auto;
+}
+.widget-nls label {
+    position: relative;
+    width: 100%;
+    margin-right: 2%;
+    display: inline-block;
+}
+.widget-nls label span {
+    font-size: 39px;
+    font-family: $font-primary;
+    font-weight: 400;
+    text-align: center;
+    color: #FFF;    
+    display: block;
+}
+.widget-nls input {
+    width: 685px;
+    font-size: 15px;
+    height: 37px;
+    border: none;
+    margin-top: -20px;
+    font-family: $font-primary;
+    font-weight: 300;
+    outline:none;
+}
+.widget-nls .button {
+    width: 38px;
+    height: 37px;
+    position: relative;
+    background: #a52c27;
+    border: none;
+    color: #FFF;
+    outline: none;
+    left: 675px;
+    top: -40px;
+    transition-property: color, background;
+    transition-duration: 250ms;
+    transition-delay: 1ms;
+    -webkit-transition-property: color, background;
+    -webkit-transition-duration: 250ms;
+    -webkit-transition-delay: 1ms;
+    opacity:1;
+}
+.widget-nls .button:hover{
+    opacity:1;
+	color: #FFF!important;
+    background: $brand-color!important;
+}
+.widget-nls .button .fa {
+    display: inherit !important;
+    background: none;
+    font-size: 22px;
+    margin-right: 3px;
+}
+#header a#nls-link {
+    color:$brand-accent!important;
+    display: block;
+    margin: 0 0 0 auto;
+    width: 80px;
+    line-height: 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    position: relative;
+    top: -82px;
+    left: -8px;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-delay: 1ms;
+    -webkit-transition-property: color;
+    -webkit-transition-duration: 250ms;
+    -webkit-transition-delay: 1ms;
+}
+#header a#nls-link:hover{
+    color: #A52C27!important;
+}
+a#nls-link .fa {
+	margin-left: 4px;
+}
+.widget-nls.has-results var {
+	display: block;
+	right: 140px;
+}
+.widget-nls ul {
+    margin: 0;
+    position: absolute;
+    list-style: none;
+    color: $brand-color;
+    font-size: 0.9em;
+    top: 107px;
+}
+
+/* --------------------------------------------------------------------------
+    Slideshow Styling
+-------------------------------------------------------------------------- */
+
+.slideshow {
+    overflow:hidden;
+	width:100%;
+    margin: -12px auto 0 auto;
+}
+#heroSlideshow-container{
+    overflow:hidden;
+    margin:-8px auto 0 auto;
+}
+#heroSlideshow {
+    margin:0;
+	list-style-type: none;
+}
+
+/* --------------------------------------------------------------------------
+    Navigation Styling
+-------------------------------------------------------------------------- */
+
+#navbar{
+    margin-top: -44px;
+    background:none;
+        a {
+            font-family: $font-primary;
+            font-size: 14px;
+            padding-bottom:22px;
+            font-weight: 600;
+            margin: 10px;
+            &:hover{
+                color:$header-secondary;
+            }
+        }
+}
+#navbar li ul {
+	margin-top: 15px;
+	background: #FFF;
+	box-shadow: 0px 1px 1px #CCC;
+	padding: 10px;
+}
+#navbar li ul li a{
+    text-align:center;
+    background:none;
+    color:$header-primary!important;
+    font-weight:600!important;
+    &:hover{
+        color:$header-secondary!important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+    Navigation Styling
+-------------------------------------------------------------------------- */
+
+.themeLogo {
+    position: relative;
+    width: 531px;
+    margin: 0px auto 0 355px;
+    top: -35px;
+    z-index: 50;
+    a{
+        position: absolute;
+    }
+}
+
+/* --------------------------------------------------------------------------
+    Featured Listing Widget Styling
+-------------------------------------------------------------------------- */
+
+#homepage_featured {
+    width: 300px;
+    margin-bottom: 0;
+    position: relative;
+    img{
+        width:300px;
+        height:210px;
+    }
+}
+h2#hdr-featuredlistings {
+    font-size: 22px;
+    font-family: $font-primary;
+    font-weight: 300;
+    margin-bottom: 1px;
+    text-transform: uppercase;
+}
+.pagedsingle li h3, .pagedsingle .listinginfo, .pagedsingle .pagecontrols{
+    margin:0;
+    color:#225777;
+}
+p.listinginfo {
+	color: #3b3b3b!important;
+}
+.pagedsingle .listinginfo span {
+    font-family: $font-primary;
+    font-size: 16px;
+    font-weight: 400;
+}
+.pagedsingle .featuredimage{
+    float:none;
+}
+#featuredlistings-28463 {
+    width: 300px;
+    height:265px;
+    padding-top: 20px;
+}
+#homepage_featured h3, #homepage_featured h3 span {
+    padding-top:0;
+    position: relative;
+    font-size: 16px;
+    color: $brand-color!important;
+    line-height: 27px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+p.pagecontrols {
+    position: relative!important;
+    z-index: 100!important;
+    background:none!important;
+}
+.pagedsingle .pagecontrols {
+	margin:-10px 5px 0 auto;
+}
+.pagedsingle .pagecontrols .next, .pagedsingle .pagecontrols .prev {
+    position: relative;
+    width: 23px;
+    background: $brand-color;
+    height: 43px;
+    text-indent:0;
+    text-decoration:none!important;
+    transition-property: opacity;
+    transition-duration: 250ms;
+    transition-delay: 1ms;
+    -webkit-transition-property: opacity;
+    -webkit-transition-duration: 250ms;
+    -webkit-transition-delay: 1ms;
+    opacity:1;
+}
+.pagedsingle .pagecontrols .next:hover, .pagedsingle .pagecontrols .prev:hover {
+    opacity:0.6;
+}
+.pagedsingle .pagecontrols a.prev {
+	top: -45px;
+}
+.pagedsingle .pagecontrols a.next {
+    top: -88px;
+    left: 30px;
+}
+p.listinginfo span:first-child {
+	float: left;
+	margin-right: 11px;
+}
+.pagecontrols a.next .fa, .pagecontrols a.prev .fa {
+    color: $brand-accent;
+    text-align: center;
+    display: block;
+    line-height: 42px;
+    font-size: 36px;
+}
+
+/* --------------------------------------------------------------------------
+    Global Styling
+-------------------------------------------------------------------------- */
+
+body .button{
+    border-color: $brand-color;
+    background: $brand-color;
+    color: $brand-accent;
+    transition-property: background, border-color, opacity;
+    transition-duration: 250ms;
+    transition-delay: 1ms;
+    -webkit-transition-property: background, border-color, opacity;
+    -webkit-transition-duration: 250ms;
+    -webkit-transition-delay: 1ms;
+    font-family:$font-primary;
+    opacity:1;
+    &:hover{
+        border-color: $brand-color;
+        background: $brand-color;
+        color: $brand-accent;
+        opacity: .8;
+    }
+}
+#property-search{
+    width:600px;
+}
+.clearThis {
+	clear: both;
+}
+.userloggedin .usrLoggedOut, .usrLoggedIn{
+    display:none;
+}
+.userloggedin .usrLoggedIn{
+    display:inline;
+}
+::-webkit-input-placeholder {
+   color: #000;
+}
+:-moz-placeholder { /* Firefox 18- */
+   color: #000;  
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #000;  
+}
+:-ms-input-placeholder {  
+   color: #000;  
+}
+
+/* --------------------------------------------------------------------------
+    Rec Search Widget Styling
+-------------------------------------------------------------------------- */
+
+.recsearch .box {
+    background: none;
+    border: none;
+}
+.recsearch ul li a {
+	background:none!important;
+    border:none!important;
+}
+.recsearch .togglebox {
+    background: none;
+    border: none;
+}
+.recsearch .togglebox span {
+	background: none;
+}
+.recsearch h3 {
+    font-size: 22px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.recsearch a b, .recsearch a {
+    font-size: 18px;
+    font-weight: 300!important;
+	font-family: $font-primary;
+}
+.recsearch ul {
+	margin-left: 15px;
+}
+a.pssviewall {
+    border: none;
+    color: #000;
+    text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+    Custom Theme Footer Styling
+-------------------------------------------------------------------------- */
+
+.ctaContent {
+    padding-top:199px;
+    line-height: 21px;
+    padding-left: 15px;
+    font-family: 'Lato',sans-serif;
+    color: #fff;
+    font-size: 14px;
+	font-weight: 400;
+    height:80px;
+}
+.ctaContent h3 {
+    font-size: 22px;
+    color: #3b3b3b;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+.ctaContent span {
+	display:block;
+	color: #3b3b3b;
+}
+.ctaContent a {
+    color: #FFF;
+    font-size: 16px;
+    display:inline-block;
+    font-weight: 300;
+}
+.leftCta {
+	width: 300px;
+	float: left;
+}
+.midCta {
+    height:281px;
+    float: left;
+    margin: 0px auto 0 30px;
+    width: 300px;
+}
+.rightCta{
+    background-position: bottom;
+    width:300px;
+    height:279px;
+    margin:0 0 0 auto;
+}
+.rightCta span {
+	display: block;
+}
+.rightCta a {
+    display:inline-block;
+    position: relative;
+    font-size: 14px;
+    font-weight:500;
+    text-transform:uppercase;
+    color: #FFF
+}
+#bottomContainer {
+	padding-top: 70px;
+}
+#footer footer h3 {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #e7c22c;
+    font-family: 'Open Sans',sans-serif;
+}
+.leftFoot, .leftFoot a {
+    color: #FFF;
+    font-family: 'Open Sans',sans-serif;
+	font-size: 15px;
+}
+.leftFoot{
+    width:700px;
+	float:left;
+}
+.leftFoot b{
+    color:#e7c22c;
+    font-weight:400;
+}
+.leftFoot span {
+	margin: 0 6px;
+}
+#footer > footer > div.leftFoot > span:nth-child(2) {
+	margin-left: 0;
+}
+.rightFoot {
+    margin: 0 0 0 auto;
+    width: 150px;
+}
+#footer p{
+    text-align:left;
+}
+
+/* --------------------------------------------------------------------------
+    MLS Page Styling
+-------------------------------------------------------------------------- */
+
+#df-controls ul li a{
+    font-size:12px;
+}
+.array1-listings #right, .array2-listings #right{
+    display:block;
+}
+.array1-listings #content, .array2-listings #content{
+    width:670px;
+    margin-right:10px;
+}
+#mls #right .box{
+    border:none;
+}
+.facetedsearch h3 {
+	font-size: 18px;
+	font-family: $font-primary;
+}
+div#property-search{
+    width:600px;
+}
+#df-listings article .control-group a, .df-listings article .control-group a{
+    font-size:12px;
+}
+p.control-group a{
+    color:$text-color!important;
+}
+#df-detail-widgets ul li a {
+	font-size: 12px;
+}
+#ask-13116-questionsct {
+	height: 100px;
+}
+.map #df-list #df-listings article.modal .close {
+    display: block;
+    font: normal normal normal 14px/1 FontAwesome!important;
+}
+.primary-info h2 a {
+    font-size: 20px;
+}
+.array1-listing #content, .array2-listing #content {
+    width: 980px;
+    margin-right: 0;
+}
+#df-detail-widgets ul li a {
+    font-size: 10px;
+}
+#df-detail-widgets .title h1 {
+    line-height: 23px;
+    font-size: 25px;
+}
+
+/* --------------------------------------------------------------------------
+    Agent Page Styling
+-------------------------------------------------------------------------- */
+
+.agents .agents-agent .agents-image-container {
+    border: none;
+    overflow: hidden;
+    width: 61%;
+    padding: 4px;
+    float: none;
+    margin-right: 3%;
+    background: #fff;
+}
+#agent-agent-biography{
+    width:95%;
+}
+
+/* --------------------------------------------------------------------------
+    AAQ Theme Styling
+-------------------------------------------------------------------------- */
+
+// New Admin error flag styling. Note: div.errorForm is necessary because Admin uses the .errorForm class in multiple places.
+#askaquestion {
+    position:relative;
+}
+div.errorFlag {
+    margin-bottom: 5px;
+    background: none;
+    color: #DB6868;
+    width: 11px;
+    position: absolute;
+    top: 2px;
+    right: 0;
+}
+div.errorForm{
+    display:none!important;
+}
+input.errorForm, textarea.errorForm {
+    outline:none;
+    border:1px solid #DB6868!important;
+}
+div.valid .errorFlag, div.valid .errorFlag{
+    display:none;
+}
+
+
+/// 
+
+#footer p{
+    color:#FFF;
+}
+#header .socialLinks a {
+  font-size: 22px;
+  margin: 0 4px;
+}
+.socialLinks {
+  margin-right:20px;
+  width: 100px;
+  float: left;
+}
+.topLeft span {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+}
+#navbar li ul{
+    background:url('http://usmimagecatalogue.s3.amazonaws.com/phpNx5Kh0.png') repeat;
+}
