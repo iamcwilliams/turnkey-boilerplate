@@ -21,20 +21,36 @@ $header-secondary: #b6b5b5;
 // Your Content Colors
 $brand-color: #43474a;
 $brand-accent: #FFF;
+$text-color: #000;
 
-// Your Content Link Colors & Hovers
+// NLS Theme
+$nls-font: 'Droid Serif', serif;
+$nls-height: 130px;
+$nls-width: 845px;
+$nls-title: #FFF;
+$nls-button: #98aa7b;
+$nls-button-hover: #2e2e2e;
 
+// Bottom CTA Area Theme
+$bottom-background: #FFF;
+$bottom-minheight: 400px;
 
-// Your Footer Link Color & Hover
+// Footer Theme Colors
 $footer-primary: #FFF;
 $footer-secondary: #FFF;
-
-$text-color: #000;
+$footer-background: #2e2e2e;
 
 //Page Dimensions
 $container-width: 980px;
 $sidebar-width: 300px;
 $header-height: 523px;
+
+// Conditionals
+$featlistinghdr: false; // Hide Feat Listing Header
+$hidebottomCTA: true; // Hide Bottom CTA Container on interior pages
+$newAAQUI: true; // Use new styling for AAQ Widget - If false, remove the JS for AAQ widget
+$newAgentTheme: true; // Use new styling for Agent manager page. - False will use default admin styling
+$hideAgentFilters: true; // Hide filters on Agent manager. 
 
 //Smooth animations
 @mixin smoothAnimation($speed){
@@ -50,6 +66,79 @@ $header-height: 523px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+/* --------------------------------------------------------------------------
+    Conditionals
+-------------------------------------------------------------------------- */
+
+h2#hdr-featuredlistings {
+  @if $featlistinghdr == true {
+    display: none;
+  } @else if $featlistinghdr == false {
+    display: block;
+  }
+}
+#bottomCtaArea{
+    @if $hideBottomCTA == true {
+        display:none;
+    } @else if $hideBottomCTA == false{
+        display:block;
+    }
+}
+// New Admin error flag styling. Note: div.errorForm is necessary because Admin uses the .errorForm class in multiple places.
+#askaquestion {
+    @if $newAAQUI == true{
+      position:relative;
+        div.errorFlag{
+            margin-bottom: 5px;
+            background: none;
+            color: #DB6868;
+            width: 11px;
+            position: absolute;
+            top: 2px;
+            right: 0;
+        }
+        div.errorForm{
+            display:none!important;
+        }
+        input.errorForm, textarea.errorForm {
+            outline:none;
+            border:1px solid #DB6868!important;
+        }
+        div.valid .errorFlag, div.valid .errorFlag{
+            display:none;
+        }
+    }
+}
+
+#agents-container{
+    @if $hideAgentFilters == true{
+        #agents-filters, #agents-form{
+            display:none;
+        }
+    }
+}
+
+.agents{
+    @if $newAgentTheme == true{
+        .agents-agent .agents-image-container{
+            width: 230px;
+            margin-bottom: 20px;
+            float:none;
+        }
+        .agents-agent ul, .agents .agents-agent p{
+            width:230px;
+        }
+    }
+}
+.agent #office-profile-div{
+    @if $newAgentTheme == true{
+        display:none;
+    }
+}
+
+
 
 /* --------------------------------------------------------------------------
     Font & Text Formatting
@@ -137,17 +226,15 @@ a{
     width: $container-width;
 }
 #footer{
+    background: $footer-background;
     background-repeat: repeat;
     padding: 0;
     width: 100%;
 }
 .homepage #bottomCtaArea {
-    min-height:400px;
-	background: #d2d7da;
+    min-height:$bottom-minheight;
+	background:$bottom-background;
     display:block;
-}
-#bottomCtaArea{
-    display:none;
 }
 
 /* --------------------------------------------------------------------------
@@ -204,7 +291,7 @@ a{
     Hidden Elements
 -------------------------------------------------------------------------- */
 
-#header .mobile, #agents-search-controls, #agent-agent-featuredlistings, .widget-nls .button span, .ezbreadcrumbs, .listinginfo a, p#footer-officeinfo, #usmtag, #property-search label.overlabel-apply{
+#header .mobile, .widget-nls .button span, .ezbreadcrumbs, .listinginfo a, p#footer-officeinfo, #usmtag, #property-search label.overlabel-apply{
     display: none;
 }
 
@@ -215,13 +302,15 @@ a{
 .naturallanguagesearch{
     top: -165px;
     z-index: 100;
-    width: 845px;
+    width: $nls-width;
     margin: 0 auto!important;
     position: relative;
     background-color: rgba(0,0,0,.5);
     border: none;
-	height:130px;
+	height:$nls-height;
 }
+
+
 .widget-nls .box {
     background: none;
     border: none;
@@ -234,12 +323,13 @@ a{
     margin-right: 2%;
     display: inline-block;
 }
+
 .widget-nls label span {
     font-size: 39px;
-    font-family: $font-primary;
+    font-family: $nls-font;
     font-weight: 400;
     text-align: center;
-    color: #FFF;    
+    color: $nls-title;    
     display: block;
 }
 .widget-nls input {
@@ -256,7 +346,7 @@ a{
     width: 38px;
     height: 37px;
     position: relative;
-    background: #a52c27;
+    background: $nls-button!important;
     border: none;
     color: #FFF;
     outline: none;
@@ -273,7 +363,7 @@ a{
 .widget-nls .button:hover{
     opacity:1;
 	color: #FFF!important;
-    background: $brand-color!important;
+    background: $nls-button-hover!important;
 }
 .widget-nls .button .fa {
     display: inherit !important;
@@ -300,7 +390,7 @@ a{
     -webkit-transition-delay: 1ms;
 }
 #header a#nls-link:hover{
-    color: #A52C27!important;
+    color: $header-secondary!important;
 }
 a#nls-link .fa {
 	margin-left: 4px;
@@ -322,7 +412,7 @@ a#nls-link .fa {
     Slideshow Styling
 -------------------------------------------------------------------------- */
 
-.slideshow {
+#header .slideshow {
     overflow:hidden;
 	width:100%;
     margin: -12px auto 0 auto;
@@ -714,53 +804,7 @@ p.control-group a{
     font-size: 25px;
 }
 
-/* --------------------------------------------------------------------------
-    Agent Page Styling
--------------------------------------------------------------------------- */
-
-.agents .agents-agent .agents-image-container {
-    border: none;
-    overflow: hidden;
-    width: 61%;
-    padding: 4px;
-    float: none;
-    margin-right: 3%;
-    background: #fff;
-}
-#agent-agent-biography{
-    width:95%;
-}
-
-/* --------------------------------------------------------------------------
-    AAQ Theme Styling
--------------------------------------------------------------------------- */
-
-// New Admin error flag styling. Note: div.errorForm is necessary because Admin uses the .errorForm class in multiple places.
-#askaquestion {
-    position:relative;
-}
-div.errorFlag {
-    margin-bottom: 5px;
-    background: none;
-    color: #DB6868;
-    width: 11px;
-    position: absolute;
-    top: 2px;
-    right: 0;
-}
-div.errorForm{
-    display:none!important;
-}
-input.errorForm, textarea.errorForm {
-    outline:none;
-    border:1px solid #DB6868!important;
-}
-div.valid .errorFlag, div.valid .errorFlag{
-    display:none;
-}
-
-
-/// 
+//
 
 #footer p{
     color:#FFF;
