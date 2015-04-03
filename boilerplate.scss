@@ -47,7 +47,7 @@ $header-height: 523px;
 
 // Conditionals
 $featlistinghdr: false; // Hide Feat Listing Header
-$hidebottomCTA: true; // Hide Bottom CTA Container on interior pages
+$hideBottomCTA: true; // Hide Bottom CTA Container on interior pages
 $newAAQUI: true; // Use new styling for AAQ Widget - If false, remove the JS for AAQ widget
 $newAgentTheme: true; // Use new styling for Agent manager page. - False will use default admin styling
 $hideAgentFilters: true; // Hide filters on Agent manager. 
@@ -111,7 +111,6 @@ h2#hdr-featuredlistings {
         }
     }
 }
-
 #agents-container{
     @if $hideAgentFilters == true{
         #agents-filters, #agents-form{
@@ -122,7 +121,6 @@ h2#hdr-featuredlistings {
         }
     }
 }
-
 .agents{
     @if $newAgentTheme == true{
         .agents-agent .agents-image-container{
@@ -234,9 +232,11 @@ a{
     padding: 0;
     width: 100%;
 }
-.homepage #bottomCtaArea {
+#bottomCtaArea {
     min-height:$bottom-minheight;
 	background:$bottom-background;
+}
+.homepage #bottomCtaArea{
     display:block;
 }
 
