@@ -51,6 +51,8 @@ $hideBottomCTA: true; // Hide Bottom CTA Container on interior pages
 $newAAQUI: true; // Use new styling for AAQ Widget - If false, remove the JS for AAQ widget
 $newAgentTheme: true; // Use new styling for Agent manager page. - False will use default admin styling
 $hideAgentFilters: true; // Hide filters on Agent manager. 
+$featuredlistingskin: 1; // Select a featured listing skin 1 thru 3.
+
 
 //Smooth animations
 @mixin smoothAnimation($speed){
@@ -148,9 +150,7 @@ body h1,body h2,body h3,body h4,body h5,body h6 {
   font-family: $font-primary;
 }
 body h1 {
-    color: $brand-color;
     font-size: 30px;
-    font-weight: 300;
     line-height: 35px;
 }
 body h2 { 
@@ -483,94 +483,102 @@ a#nls-link .fa {
 -------------------------------------------------------------------------- */
 
 #homepage_featured {
-    width: 300px;
-    margin-bottom: 0;
-    position: relative;
-    img{
-        width:300px;
-        height:210px;
+    @if $featuredlistingskin == 1{
+        width: 300px;
+        margin-bottom: 0;
+        position: relative;
+        img{
+            width:300px;
+            height:210px;
+        }
+        h3, span{
+            padding-top:0;
+            position: relative;
+            font-size: 16px;
+            color: $brand-color!important;
+            line-height: 27px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        h2#hdr-featuredlistings {
+            font-size: 22px;
+            font-family: $font-primary;
+            font-weight: 300;
+            margin-bottom: 1px;
+            text-transform: uppercase;
+        }
+        .pagedsingle li h3, .pagedsingle .listinginfo, .pagedsingle .pagecontrols{
+            margin:0;
+            color:#225777;
+        }
+        p.listinginfo {
+            color: #3b3b3b!important;
+        }
+        .pagedsingle .listinginfo span {
+            font-family: $font-primary;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        .pagedsingle .featuredimage{
+            float:none;
+        }
+        #featuredlistings-28463 {
+            width: 300px;
+            height:265px;
+            padding-top: 20px;
+        }
+        p.pagecontrols {
+            position: relative!important;
+            z-index: 100!important;
+            background:none!important;
+        }
+        .pagedsingle .pagecontrols {
+            margin:-10px 5px 0 auto;
+        }
+        .pagedsingle .pagecontrols .next, .pagedsingle .pagecontrols .prev {
+            position: relative;
+            width: 23px;
+            background: $brand-color;
+            height: 43px;
+            text-indent:0;
+            text-decoration:none!important;
+            transition-property: opacity;
+            transition-duration: 250ms;
+            transition-delay: 1ms;
+            -webkit-transition-property: opacity;
+            -webkit-transition-duration: 250ms;
+            -webkit-transition-delay: 1ms;
+            opacity:1;
+        }
+        .pagedsingle .pagecontrols .next:hover, .pagedsingle .pagecontrols .prev:hover {
+            opacity:0.6;
+        }
+        .pagedsingle .pagecontrols a.prev {
+            top: -45px;
+        }
+        .pagedsingle .pagecontrols a.next {
+            top: -88px;
+            left: 30px;
+        }
+        p.listinginfo span:first-child {
+            float: left;
+            margin-right: 11px;
+        }
+        .pagecontrols a.next .fa, .pagecontrols a.prev .fa {
+            color: $brand-accent;
+            text-align: center;
+            display: block;
+            line-height: 42px;
+            font-size: 36px;
+        }
+    } @else if $featuredlistingskin == 2{
+        display:none;
     }
 }
-h2#hdr-featuredlistings {
-    font-size: 22px;
-    font-family: $font-primary;
-    font-weight: 300;
-    margin-bottom: 1px;
-    text-transform: uppercase;
-}
-.pagedsingle li h3, .pagedsingle .listinginfo, .pagedsingle .pagecontrols{
-    margin:0;
-    color:#225777;
-}
-p.listinginfo {
-	color: #3b3b3b!important;
-}
-.pagedsingle .listinginfo span {
-    font-family: $font-primary;
-    font-size: 16px;
-    font-weight: 400;
-}
-.pagedsingle .featuredimage{
-    float:none;
-}
-#featuredlistings-28463 {
-    width: 300px;
-    height:265px;
-    padding-top: 20px;
-}
-#homepage_featured h3, #homepage_featured h3 span {
-    padding-top:0;
-    position: relative;
-    font-size: 16px;
-    color: $brand-color!important;
-    line-height: 27px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-p.pagecontrols {
-    position: relative!important;
-    z-index: 100!important;
-    background:none!important;
-}
-.pagedsingle .pagecontrols {
-	margin:-10px 5px 0 auto;
-}
-.pagedsingle .pagecontrols .next, .pagedsingle .pagecontrols .prev {
-    position: relative;
-    width: 23px;
-    background: $brand-color;
-    height: 43px;
-    text-indent:0;
-    text-decoration:none!important;
-    transition-property: opacity;
-    transition-duration: 250ms;
-    transition-delay: 1ms;
-    -webkit-transition-property: opacity;
-    -webkit-transition-duration: 250ms;
-    -webkit-transition-delay: 1ms;
-    opacity:1;
-}
-.pagedsingle .pagecontrols .next:hover, .pagedsingle .pagecontrols .prev:hover {
-    opacity:0.6;
-}
-.pagedsingle .pagecontrols a.prev {
-	top: -45px;
-}
-.pagedsingle .pagecontrols a.next {
-    top: -88px;
-    left: 30px;
-}
-p.listinginfo span:first-child {
-	float: left;
-	margin-right: 11px;
-}
-.pagecontrols a.next .fa, .pagecontrols a.prev .fa {
-    color: $brand-accent;
-    text-align: center;
-    display: block;
-    line-height: 42px;
-    font-size: 36px;
-}
+
+
+
+
 
 /* --------------------------------------------------------------------------
     Global Styling
@@ -818,8 +826,8 @@ p.control-group a{
 }
 .socialLinks {
   margin-right:20px;
-  width: 100px;
-  float: left;
+  width: 16 0px;
+  float: none;
 }
 .topLeft span {
   display: block;
