@@ -507,19 +507,19 @@ a#nls-link .fa {
             margin-bottom: 1px;
             text-transform: uppercase;
         }
-        .pagedsingle li h3, .pagedsingle .listinginfo, .pagedsingle .pagecontrols{
+        li h3, .listinginfo, .pagecontrols{
             margin:0;
             color:#225777;
         }
         p.listinginfo {
             color: #3b3b3b!important;
         }
-        .pagedsingle .listinginfo span {
+        .listinginfo span {
             font-family: $font-primary;
             font-size: 16px;
             font-weight: 400;
         }
-        .pagedsingle .featuredimage{
+        .featuredimage{
             float:none;
         }
         #featuredlistings-28463 {
@@ -532,10 +532,10 @@ a#nls-link .fa {
             z-index: 100!important;
             background:none!important;
         }
-        .pagedsingle .pagecontrols {
+        .pagecontrols {
             margin:-10px 5px 0 auto;
         }
-        .pagedsingle .pagecontrols .next, .pagedsingle .pagecontrols .prev {
+        .pagecontrols .next, .pagecontrols .prev {
             position: relative;
             width: 23px;
             background: $brand-color;
@@ -550,13 +550,13 @@ a#nls-link .fa {
             -webkit-transition-delay: 1ms;
             opacity:1;
         }
-        .pagedsingle .pagecontrols .next:hover, .pagedsingle .pagecontrols .prev:hover {
+        .pagecontrols .next:hover, .pagecontrols .prev:hover {
             opacity:0.6;
         }
-        .pagedsingle .pagecontrols a.prev {
+        .pagecontrols a.prev {
             top: -45px;
         }
-        .pagedsingle .pagecontrols a.next {
+        .pagecontrols a.next {
             top: -88px;
             left: 30px;
         }
