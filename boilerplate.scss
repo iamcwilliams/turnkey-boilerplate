@@ -51,7 +51,7 @@ $hideBottomCTA: true; // Hide Bottom CTA Container on interior pages
 $newAAQUI: true; // Use new styling for AAQ Widget - If false, remove the JS for AAQ widget
 $newAgentTheme: true; // Use new styling for Agent manager page. - False will use default admin styling
 $hideAgentFilters: true; // Hide filters on Agent manager. 
-$featuredlistingskin: 1; // Select a featured listing skin 1 thru 3.
+$featuredlistingskin: 2; // Select a featured listing skin 1 thru 3.
 
 
 //Smooth animations
@@ -123,21 +123,24 @@ h2#hdr-featuredlistings {
         }
     }
 }
+@if $newAgentTheme == true{
 .agents{
-    @if $newAgentTheme == true{
-        .agents-agent .agents-image-container{
-            width: 230px;
-            margin-bottom: 20px;
-            float:none;
-        }
-        .agents-agent ul, .agents .agents-agent p{
-            width:230px;
-        }
+    .agents-agent .agents-image-container{
+        width: 230px;
+        margin-bottom: 20px;
+        float:none;
+    }
+    .agents-agent ul, .agents .agents-agent p{
+        width:230px;
     }
 }
-.agent #office-profile-div{
-    @if $newAgentTheme == true{
-        display:none;
+    .agent {
+        #office-profile-div{
+            display:none;
+        }
+        #agent-agent-biography{
+            width:95%;
+        }
     }
 }
 
@@ -483,14 +486,15 @@ a#nls-link .fa {
 -------------------------------------------------------------------------- */
 
 #homepage_featured {
-    @if $featuredlistingskin == 1{
         width: 300px;
         margin-bottom: 0;
         position: relative;
         img{
-            width:300px;
-            height:210px;
+            width: 300px;
+            margin-top: -20px;
+            height: 250px;
         }
+        @if $featuredlistingskin == 1{
         h3, span{
             padding-top:0;
             position: relative;
@@ -520,12 +524,11 @@ a#nls-link .fa {
             font-weight: 400;
         }
         .featuredimage{
-            float:none;
-        }
-        #featuredlistings-28463 {
+			float: none;
+            overflow: hidden;
             width: 300px;
-            height:265px;
-            padding-top: 20px;
+            height: 200px;
+            display: block;
         }
         p.pagecontrols {
             position: relative!important;
@@ -571,12 +574,91 @@ a#nls-link .fa {
             line-height: 42px;
             font-size: 36px;
         }
+        .listinginfo a{
+            display:none;
+        }
     } @else if $featuredlistingskin == 2{
-        display:none;
+        h2#hdr-featuredlistings {
+            font-size: 22px;
+            font-family: $font-primary;
+            font-weight: 300;
+            margin-bottom: 1px;
+            text-transform: uppercase;
+        }
+        li h3, .listinginfo, .pagecontrols{
+            margin:0;
+            color:$featured-text-color;
+        }
+        p.listinginfo {
+            height:50px;
+            padding-left:10px;
+            color: $featured-text-color;
+        }
+        .listinginfo span {
+            font-family: $font-primary;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        .featuredimage{
+            float:none;
+            overflow: hidden;
+            width: 300px;
+            height: 200px;
+            display: block;
+        }
+        h3, h3 span {
+            padding-top:0;
+            position: relative;
+            font-size: 16px;
+            color: $featured-text-color;
+            line-height: 27px;
+            font-weight: 600;
+            text-transform: none;
+        }
+        h3{
+            padding-top:10px;
+            padding-left:10px;
+        }
+        p.pagecontrols {
+            position: relative!important;
+            z-index: 100!important;
+            background:none!important;
+        }
+        .pagecontrols {
+            top:-160px;
+            margin:0 auto;
+        }
+        .pagecontrols .next, .pagecontrols .prev {
+            position: relative;
+            width: 26px;
+            height: 51px;
+            text-decoration:none!important;
+        }
+        .pagecontrols a.prev {
+            top: -45px;
+            left:-126px;
+        }
+        .pagecontrols a.next {
+            top: -94px;
+            left: 148px;
+        }
+        a.next .fa, a.prev .fa {
+            color: $brand-accent;
+            text-align: center;
+            display: block;
+            line-height: 42px;
+            font-size: 36px;
+        }
+        .listinginfo a {
+            position:relative;
+            right: -215px;
+            top: -50px;
+        }
+        li{
+            background:$featured-background;
+        }
     }
 }
-
-
 
 
 
@@ -834,7 +916,4 @@ p.control-group a{
   font-size: 16px;
   font-weight: 500;
   line-height: 19px;
-}
-#navbar li ul{
-    background:url('http://usmimagecatalogue.s3.amazonaws.com/phpNx5Kh0.png') repeat;
 }
