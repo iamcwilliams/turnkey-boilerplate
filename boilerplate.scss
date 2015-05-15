@@ -44,6 +44,7 @@ $footer-background: #2e2e2e;
 $container-width: 980px;
 $sidebar-width: 300px;
 $header-height: 523px;
+$content-width: 980px;
 
 // Conditionals
 $featlistinghdr: false; // Hide Feat Listing Header
@@ -188,7 +189,7 @@ a{
     min-width:100%;
 }
 #content{
-    width:650px;
+    width:$content-width;
     margin-right:30px;
 }
 #contentwrapper{
@@ -251,7 +252,7 @@ a{
     text-shadow:none;
     font-size:17px;
     font-weight:400;
-    font-family:"Open Sans",sans-serif;
+    font-family:$font-primary;
 }
 #header a:hover{
     color:$header-secondary;
@@ -270,7 +271,7 @@ a{
     width: 400px;
     margin: 0 0 0 auto;
     color: #FFF;
-    font-family: 'Open Sans',sans-serif;
+    font-family: $font-primary;
     font-size: 17px;
 }
 .topRight span {
@@ -315,8 +316,6 @@ a{
     border: none;
 	height:$nls-height;
 }
-
-
 .widget-nls .box {
     background: none;
     border: none;
@@ -329,7 +328,6 @@ a{
     margin-right: 2%;
     display: inline-block;
 }
-
 .widget-nls label span {
     font-size: 39px;
     font-family: $nls-font;
@@ -412,6 +410,9 @@ a#nls-link .fa {
     color: $brand-color;
     font-size: 0.9em;
     top: 107px;
+}
+#mls .msg .widget-nls{
+    display:none;
 }
 
 /* --------------------------------------------------------------------------
@@ -756,7 +757,7 @@ a.pssviewall {
     padding-top:199px;
     line-height: 21px;
     padding-left: 15px;
-    font-family: 'Lato',sans-serif;
+    font-family: $font-primary;
     color: #fff;
     font-size: 14px;
 	font-weight: 400;
@@ -813,11 +814,11 @@ a.pssviewall {
     text-transform: uppercase;
     font-weight: 400;
     color: #e7c22c;
-    font-family: 'Open Sans',sans-serif;
+    font-family: $font-primary;
 }
 .leftFoot, .leftFoot a {
     color: #FFF;
-    font-family: 'Open Sans',sans-serif;
+    font-family: $font-primary;
 	font-size: 15px;
 }
 .leftFoot{
@@ -861,6 +862,7 @@ a.pssviewall {
 }
 .facetedsearch h3 {
 	font-size: 18px;
+    margin-bottom:10px;
 	font-family: $font-primary;
 }
 div#property-search{
@@ -886,7 +888,7 @@ p.control-group a{
     font-size: 20px;
 }
 .array1-listing #content, .array2-listing #content {
-    width: 980px;
+    width: $content-width;
     margin-right: 0;
 }
 #df-detail-widgets ul li a {
